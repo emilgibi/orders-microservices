@@ -1,0 +1,17 @@
+services:
+  order-app:
+    image: orders:1.0
+    ports:
+      - 8084:8084
+    depends_on: ["order"] 
+    environment:
+      DB_HOST: localhost
+      USER: postgres
+      PASS: Emilgibi@123
+  order:
+    image: postgres 
+    environment:
+      POSTGRES_PASSWORD: Emilgibi@123
+      POSTGRES_USERNAME: postgres
+
+
