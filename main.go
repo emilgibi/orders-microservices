@@ -14,11 +14,13 @@ func main() {
 
 	godotenv.Load()
 
-	HOST := os.Getenv("DB_HOST")
-	USER := os.Getenv("USER_NAME")
-	PASS := os.Getenv("PASS")
+	HOST := os.Getenv("DATABASE_HOST")
+	USER := os.Getenv("DATABASE_USER")
+	PASS := os.Getenv("DATABASE_PASS")
+	NAME := os.Getenv("DATABASE_NAME")
+	PORT := os.Getenv("DATABASE_PORT")
 
-	handlerObj.Connect(HOST, USER, PASS, "postgres", "5432")
+	handlerObj.Connect(HOST, USER, PASS, NAME, PORT)
 
 	dbinstance, _ := handlerObj.DB.DB()
 	defer dbinstance.Close()
